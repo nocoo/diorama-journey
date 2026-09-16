@@ -1,4 +1,5 @@
-<h1 align="center">🏞️ Diorama Journey</h1>
+<p align="center"><img src="assets/brand/icon-rounded.png" width="128" height="128" alt="Diorama Journey logo" /></p>
+<h1 align="center">Diorama Journey</h1>
 <p align="center"><strong>Tell a story through miniature 3D worlds.</strong><br>One recurring element · Connected chapters · Narrated films and matching slides</p>
 <p align="center">English · <a href="README.zh-CN.md">简体中文</a></p>
 <p align="center">

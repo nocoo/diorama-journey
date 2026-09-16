@@ -1,0 +1,54 @@
+{
+  "project": "diorama-journey",
+  "sourceStudy": "hexly.ai/artwork/logo-family/diorama-journey/2026-09-17-01",
+  "finishing": "01",
+  "model": "gpt-image-2.5-sunburst",
+  "rawImageSha256": "068e443f48b66c4508508b2ea597251eb688f082807e06ae579f4925601088c2",
+  "nativeSize": [
+    2048,
+    2048
+  ],
+  "ownerApproved": true,
+  "recordedAt": "2026-09-16T23:30:27.490Z",
+  "files": [
+    {
+      "path": "logo.png",
+      "role": "Canonical transparent foreground",
+      "bytes": 4115562,
+      "sha256": "fff0d40b6bf3067f80efbbcf64e78c04a2e614e9bf83f9d8edbe2168246ec851"
+    },
+    {
+      "path": "assets/brand/icon.png",
+      "role": "Square presentation",
+      "bytes": 5393027,
+      "sha256": "f083465c5d36cd00a482e0fd921bc0b6cf44b3baaacbd10af6005da14ce1baa1"
+    },
+    {
+      "path": "assets/brand/icon-rounded.png",
+      "role": "Large README presentation",
+      "bytes": 5330932,
+      "sha256": "be60f28160278655e809621597608111d6aa05a9484aae25194d8530d0be0bcf"
+    },
+    {
+      "path": "assets/starter/public/brand/logo-48.png",
+      "role": "24 CSS px viewer header mark",
+      "bytes": 4415,
+      "sha256": "62929d0177e085fad036bd955c269aa4df6885f8cef6637229721c380e8c3a9c"
+    },
+    {
+      "path": "assets/starter/public/brand/favicon.ico",
+      "role": "Transparent browser favicon",
+      "sizes": [
+        16,
+        24,
+        32,
+        48,
+        64,
+        128,
+        256
+      ],
+      "bytes": 121822,
+      "sha256": "886f7093747f9ee4837f4adf5dc3bcce5fdf0ec7ed52f14e8e585e2d81877371"
+    }
+  ]
+}

@@ -46,7 +46,7 @@ function App() {
     setLive(!live);
   }
   return <main>
-    <header className="site-header"><a className="brand" href={skillUrl || '#'}>✧ <span>Diorama Journey</span></a><a href="#downloads">Downloads <span aria-hidden="true">↗</span></a></header>
+    <header className="site-header"><a className="brand" href={skillUrl || '#'}><img src={asset('brand/logo-48.png')} width="24" height="24" alt="" /> <span>Diorama Journey</span></a><a href="#downloads">Downloads <span aria-hidden="true">↗</span></a></header>
     <section className="intro"><p className="kicker">ONE LITTLE LIGHT. A WORLD OF POSSIBILITIES.</p><h1>{story.title}</h1><p>{story.subtitle}</p>
       <div className="facts"><span>{clock(timing.durationInFrames/timing.fps)}</span><span>{story.scenes.length} chapters</span><span>1920 × 1080</span><span>Narrated in {languageName}</span></div>
     </section>
