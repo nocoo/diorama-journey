@@ -1,0 +1,50 @@
+{
+  "name": "diorama-journey-example",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22.12.0"},
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 7410 --strictPort",
+    "studio": "remotion studio src/index.ts --port 7411",
+    "typecheck": "tsc --noEmit",
+    "build": "vite build",
+    "test": "node --test tests/*.test.mjs",
+    "voice": "uv run --python 3.12 scripts/narrate.py",
+    "fonts": "python3 scripts/fonts.py",
+    "sound": "uv run --python 3.12 scripts/soundtrack.py",
+    "stills": "node scripts/render.mjs stills",
+    "poster": "node scripts/render.mjs poster",
+    "sample": "node scripts/render.mjs sample",
+    "video": "node scripts/render.mjs video",
+    "slides": "node scripts/render.mjs slides",
+    "clips": "python3 scripts/deliver.py clips",
+    "render": "npm run video && npm run slides && npm run clips",
+    "verify": "python3 scripts/verify.py",
+    "review": "node scripts/review-site.mjs",
+    "checkpoint": "python3 scripts/checkpoint.py",
+    "archive": "python3 scripts/deliver.py archive"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.3.0",
+    "@remotion/bundler": "4.0.520",
+    "@remotion/cli": "4.0.520",
+    "@remotion/player": "4.0.520",
+    "@remotion/renderer": "4.0.520",
+    "@remotion/three": "4.0.520",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.520",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.0.0",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.0",
+    "@types/three": "0.180.0",
+    "@vitejs/plugin-react": "5.0.0",
+    "playwright": "1.58.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.0"
+  }
+}

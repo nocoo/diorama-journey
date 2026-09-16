@@ -1,0 +1,14 @@
+node_modules/
+website/
+process/
+verification/
+archives/
+public/review/
+public/slides/
+public/clips/
+public/audio/*.wav
+public/audio/full-narration.mp3
+delivery.json
+__pycache__/
+.DS_Store
+*.tmp.mp3

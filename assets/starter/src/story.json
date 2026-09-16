@@ -1,0 +1,65 @@
+{
+  "title": "A small idea, shared",
+  "subtitle": "Follow a little light from a first spark to a place for everyone.",
+  "artifact": "a-small-idea",
+  "compositionId": "DioramaJourney",
+  "language": "en",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "rate": "+2%",
+  "pitch": "+0Hz",
+  "fps": 30,
+  "motif": "One amber lantern travels along a continuous path. It carries the idea across every scene, then lights the final garden.",
+  "pronunciations": {},
+  "scenes": [
+    {
+      "id": "spark",
+      "chapter": "A beginning",
+      "title": "A small idea.\nA shared world.",
+      "body": "Every journey starts with something worth carrying.",
+      "landmark": "gate",
+      "narration": "Every idea begins as a small spark. Here, a little light sets out through an unfinished world, looking for a place where it can become useful.",
+      "evidence": [],
+      "action": "The lantern wakes beneath a welcoming arch and begins to move."
+    },
+    {
+      "id": "explore",
+      "chapter": "Find a direction",
+      "title": "Climb a little.\nSee a little more.",
+      "body": "A new perspective makes the next step visible.",
+      "landmark": "stairs",
+      "narration": "The first path is rarely the whole answer. A staircase offers another perspective. Step by step, the little light finds a direction it could not see from the ground.",
+      "evidence": [],
+      "action": "A stepped lookout rises in sequence as the lantern crosses the island."
+    },
+    {
+      "id": "make",
+      "chapter": "Give it shape",
+      "title": "Try a shape.\nMake it work.",
+      "body": "Small experiments turn possibility into something concrete.",
+      "landmark": "workshop",
+      "narration": "At the workshop, separate pieces start to fit together. Some move, some settle, and a rough possibility becomes something that can be tried and improved.",
+      "evidence": [],
+      "action": "Three hovering blocks settle onto a plinth while an open ring turns."
+    },
+    {
+      "id": "connect",
+      "chapter": "Cross the gap",
+      "title": "Build a bridge.\nBring it along.",
+      "body": "An idea travels further when someone else can reach it.",
+      "landmark": "bridge",
+      "narration": "A useful idea needs a way to travel. A bridge connects the work to another place, carrying both the result and the lessons learned along the way.",
+      "evidence": [],
+      "action": "A bridge extends between two towers as the lantern approaches the next crossing."
+    },
+    {
+      "id": "share",
+      "chapter": "Let it grow",
+      "title": "One little light.\nRoom for more.",
+      "body": "The end of one journey can become someone else's beginning.",
+      "landmark": "garden",
+      "narration": "The light arrives in a garden, where its glow helps something new take root. What began as one small idea has become a place for others to begin.",
+      "evidence": [],
+      "action": "Flowers unfold around a central lantern tower, resolving the opening spark."
+    }
+  ]
+}

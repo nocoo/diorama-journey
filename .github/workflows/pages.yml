@@ -1,0 +1,69 @@
+name: Publish example
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: assets/starter/package-lock.json
+      - name: Download the checked example archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download --pattern 'a-small-idea-*.zip' --dir "$RUNNER_TEMP/example"
+          gh release download --pattern 'a-small-idea-*.zip.sha256' --dir "$RUNNER_TEMP/example"
+      - name: Restore only verified public deliverables
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          from zipfile import ZipFile
+          archive = next((Path(os.environ['RUNNER_TEMP']) / 'example').glob('*.zip'))
+          expected = archive.with_suffix('.zip.sha256').read_text().split()[0]
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == expected
+          root = Path('assets/starter').resolve()
+          with ZipFile(archive) as bundle:
+              manifest = json.loads(bundle.read('delivery.json'))
+              for item in manifest['files']:
+                  if not item['path'].startswith('public/'):
+                      continue
+                  target = (root / item['path']).resolve()
+                  assert target.is_relative_to(root / 'public')
+                  data = bundle.read(item['path'])
+                  assert hashlib.sha256(data).hexdigest() == item['sha256']
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(data)
+          PY
+      - name: Build the example website
+        working-directory: assets/starter
+        env:
+          BASE_PATH: /diorama-journey/
+          VITE_SKILL_URL: https://github.com/${{ github.repository }}
+          VITE_RELEASE_URL: https://github.com/${{ github.repository }}/releases/latest
+        run: |
+          npm ci
+          npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: assets/starter/website
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Diorama Journey"
+  short_description: "Miniature 3D stories, narrated films and slide decks"
+  default_prompt: "Use $diorama-journey to turn this material into a miniature 3D journey with a recurring element, narration, chapter clips and matching slides."

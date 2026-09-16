@@ -1,0 +1,24 @@
+.film{font-family:Journey,JourneyCJK,Arial,sans-serif;color:#35463e;background:#f5f2e9;overflow:hidden}
+.paper{background:radial-gradient(ellipse at 78% 20%,#e2e8dd99,transparent 52%),radial-gradient(ellipse at 5% 92%,#f2d4c055,transparent 50%),#f5f2e9}
+.ambient-orbit{position:absolute;right:150px;top:160px;width:480px;height:480px;border:1px solid #8b9b8624;border-radius:50%;box-shadow:0 0 0 26px #8b9b8609,0 0 0 60px #8b9b8605}
+.film-header{position:absolute;top:62px;left:110px;right:110px;display:flex;align-items:center;gap:18px;font-size:24px;z-index:3;letter-spacing:-.4px}
+.film-mark{font-size:44px;color:#bb7a4e;font-weight:300}
+.film-series{margin-left:auto;font-size:13px;letter-spacing:3px;color:#6e7b70}
+.film-copy{position:absolute;top:285px;width:660px;z-index:2}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:17px;letter-spacing:2.5px;text-transform:uppercase;color:#7b8977;margin:0 0 30px}
+.eyebrow i{width:28px;height:2px;background:#be825a}
+.film h1{font-size:73px;line-height:1.12;letter-spacing:-3.8px;font-weight:550;margin:0 0 28px}
+.film h1 span{display:block;white-space:pre-wrap}
+.film h1 .accent{color:#869777}
+.film-body{font-size:27px;line-height:1.55;max-width:590px;color:#68746a;margin:0;white-space:pre-wrap}
+.copy-rule{display:flex;align-items:center;gap:17px;margin-top:46px;color:#8d9183;font-size:16px}
+.copy-rule span{height:1px;width:65px;background:#c6c8b7}
+.copy-rule i{font-style:normal}
+.subtitle{position:absolute;bottom:115px;left:190px;right:190px;text-align:center;z-index:5;font-size:25px;line-height:1.5;color:#34433c}
+.subtitle span{display:inline-block;max-width:1420px;padding:13px 25px;border-radius:14px;background:#faf8f0f2;box-shadow:0 2px 12px #4c604108}
+.film-footer{position:absolute;left:110px;right:110px;bottom:48px;display:flex;align-items:center;gap:36px;font-size:19px;color:#536553;z-index:3}
+.film-footer i{font-style:normal;color:#a1ab9a}
+.chapter-track{display:flex;gap:8px;width:410px}
+.chapter-track>div{height:3px;background:#dbe0d0;flex:1}
+.chapter-track span{display:block;height:100%}
+.footer-caption{margin-left:auto;font-size:12px;letter-spacing:2.3px;color:#84907d}

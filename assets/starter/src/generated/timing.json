@@ -1,0 +1,124 @@
+{
+  "fps": 30,
+  "durationInFrames": 2043,
+  "scenes": [
+    {
+      "id": "spark",
+      "index": 0,
+      "start": 0,
+      "duration": 412,
+      "voiceStart": 30,
+      "audioDuration": 9.72,
+      "audio": "audio/00-spark.mp3",
+      "keyframe": 150
+    },
+    {
+      "id": "explore",
+      "index": 1,
+      "start": 412,
+      "duration": 433,
+      "voiceStart": 24,
+      "audioDuration": 10.608,
+      "audio": "audio/01-explore.mp3",
+      "keyframe": 562
+    },
+    {
+      "id": "make",
+      "index": 2,
+      "start": 845,
+      "duration": 417,
+      "voiceStart": 24,
+      "audioDuration": 10.08,
+      "audio": "audio/02-make.mp3",
+      "keyframe": 995
+    },
+    {
+      "id": "connect",
+      "index": 3,
+      "start": 1262,
+      "duration": 393,
+      "voiceStart": 24,
+      "audioDuration": 9.288,
+      "audio": "audio/03-connect.mp3",
+      "keyframe": 1412
+    },
+    {
+      "id": "share",
+      "index": 4,
+      "start": 1655,
+      "duration": 388,
+      "voiceStart": 24,
+      "audioDuration": 9.12,
+      "audio": "audio/04-share.mp3",
+      "keyframe": 1805
+    }
+  ],
+  "captions": [
+    {
+      "start": 1.05,
+      "end": 3.8553922,
+      "text": "Every idea begins as a small spark.",
+      "scene": 0
+    },
+    {
+      "start": 3.8553922,
+      "end": 10.6813727,
+      "text": "Here, a little light sets out through an unfinished world, looking for a place where it can become useful.",
+      "scene": 0
+    },
+    {
+      "start": 14.583333333333334,
+      "end": 17.204901933333332,
+      "text": "The first path is rarely the whole answer.",
+      "scene": 1
+    },
+    {
+      "start": 17.204901933333332,
+      "end": 19.900980333333333,
+      "text": "A staircase offers another perspective.",
+      "scene": 1
+    },
+    {
+      "start": 19.900980433333334,
+      "end": 25.097058933333333,
+      "text": "Step by step, the little light finds a direction it could not see from the ground.",
+      "scene": 1
+    },
+    {
+      "start": 29.016666666666666,
+      "end": 32.38578436666666,
+      "text": "At the workshop, separate pieces start to fit together.",
+      "scene": 2
+    },
+    {
+      "start": 32.38578436666666,
+      "end": 38.99117656666666,
+      "text": "Some move, some settle, and a rough possibility becomes something that can be tried and improved.",
+      "scene": 2
+    },
+    {
+      "start": 42.916666666666664,
+      "end": 45.391176466666664,
+      "text": "A useful idea needs a way to travel.",
+      "scene": 3
+    },
+    {
+      "start": 45.391176466666664,
+      "end": 52.10686286666667,
+      "text": "A bridge connects the work to another place, carrying both the result and the lessons learned along the way.",
+      "scene": 3
+    },
+    {
+      "start": 56.016666666666666,
+      "end": 60.75833336666666,
+      "text": "The light arrives in a garden, where its glow helps something new take root.",
+      "scene": 4
+    },
+    {
+      "start": 60.75833336666667,
+      "end": 65.03529416666667,
+      "text": "What began as one small idea has become a place for others to begin.",
+      "scene": 4
+    }
+  ]
+}

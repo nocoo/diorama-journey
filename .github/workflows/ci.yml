@@ -1,0 +1,62 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: assets/starter/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: astral-sh/setup-uv@v6
+      - name: Install media tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Verify independent project creation
+        run: python3 -m unittest discover -s tests
+      - name: Install the pinned starter
+        working-directory: assets/starter
+        run: npm ci
+      - name: Check source and timeline contracts
+        working-directory: assets/starter
+        run: |
+          npm run typecheck
+          npm test
+          python3 -m unittest discover -s tests -p 'test_*.py'
+          npm run build
+      - name: Prepare cached example audio
+        working-directory: assets/starter
+        run: |
+          npm run voice
+          npm run sound
+          npx remotion browser ensure
+      - name: Render WebGL frames and real presentations
+        working-directory: assets/starter
+        env:
+          RENDER_CONCURRENCY: '1'
+          RENDER_GL: swangle
+        run: |
+          node scripts/render.mjs sample 300,311
+          npm run slides
+          uv run --python 3.12 scripts/slides.py verify
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: render-and-slides
+          path: |
+            assets/starter/verification/
+            assets/starter/public/slides/
+            assets/starter/process/renders/*/transition.mp4
+            assets/starter/process/renders/*/render.json
