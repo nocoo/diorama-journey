@@ -11,7 +11,7 @@
 </p>
 
 <p align="center"><img src="docs/images/example.jpg" width="960" alt="A little amber lantern travelling through an original miniature island with arches, trees and stone paths" /></p>
-<p align="center"><a href="https://nocoo.github.io/diorama-journey/">Watch the live example</a> · <a href="https://github.com/nocoo/diorama-journey/releases/latest">Download the complete production</a></p>
+<p align="center"><a href="https://hexly.ai/projects/diorama-journey">Watch the live example</a> · <a href="https://github.com/nocoo/diorama-journey/releases/latest">Download the complete production</a></p>
 
 ## What it does
 
