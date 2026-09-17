@@ -86,6 +86,8 @@ Status: `enforced` | `planned` | `manual` | `N/A`.
 | Docs | SKILL/references if workflow changed | manual | human review |
 | Release | GitHub release of a production ZIP | manual | `pages.yml` + README download link |
 
+No husky. Target (unmeasured): pre-commit G1+L1 on index snapshot <30s; pre-push applicable G2 on stdin refs <3min. `--no-verify` forbidden.
+
 ## Resources / Isolation
 
 | Purpose | Port / resource | Isolation |
