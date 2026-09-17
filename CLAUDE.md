@@ -73,6 +73,7 @@ Do not run `npm run render` just because it appears here.
 
 Status: `enforced` | `planned` | `manual` | `N/A`.
 6DQ = L1/L2/L3 + G1/G2 + D1. Executable helpers must be tested.
+L1 requires statements/branches/functions/lines each ≥95%; no skipped or focused tests.
 
 | Change | Proof | Status | Evidence |
 |---|---|---|---|
