@@ -1,7 +1,5 @@
 """Export exact chapter clips or package a complete, checksummed production."""
 import argparse
-import json
-from pathlib import Path
 import shutil
 import subprocess
 from zipfile import ZIP_DEFLATED, ZipFile
