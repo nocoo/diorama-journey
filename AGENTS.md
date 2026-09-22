@@ -2,7 +2,7 @@
 
 Agent skill that turns an outline into a narrated miniature-3D journey (Remotion + Three.js) plus slides.
 Profile: docs-config
-Direction: [SKILL.md](SKILL.md). Frameworks must not rewrite this file.
+Human overview: [README.md](README.md). Direction: [SKILL.md](SKILL.md). Frameworks must not rewrite this file. Maintain this root `AGENTS.md` as the only project handbook; do not create a `CLAUDE.md` alias, copy or import.
 
 ## Sources of Truth
 
@@ -72,22 +72,22 @@ Do not run `npm run render` just because it appears here.
 ## Verification
 
 Status: `enforced` | `planned` | `manual` | `N/A`.
-6DQ = L1/L2/L3 + G1/G2 + D1. Executable helpers must be tested.
-L1 requires statements/branches/functions/lines each ≥95%; no skipped or focused tests.
+6DQ = L1/L2/L3 + G2 + D1; the former G1 dimension was merged into L1 on 2026-09-21. Executable helpers must be tested.
+L1 requires statements/branches/functions/lines each ≥95%; no skipped or focused tests; plus check-only strict types and lint with zero errors and warnings.
 
 | Change | Proof | Status | Evidence |
 |---|---|---|---|
 | Logic | L1 ≥ 95% four metrics | planned | CI runs skill unittest + starter `npm test` + Python tests; no coverage thresholds |
+| Types / lint (L1 static) | 0 error, 0 warning | planned | starter `npm run typecheck` in CI; no lint script; no ruff |
 | API / schema | L2 real HTTP | N/A | no service API; review site is a local static helper |
 | UI path | L3 full film/WebGL | planned | CI renders sample frames + slides, not a full user journey; visual QA is human |
-| Types / lint | G1 0 error, 0 warning | planned | starter `npm run typecheck` in CI; no lint script; no ruff |
 | Deps / secrets | G2 osv-scanner + gitleaks | planned | CI is a custom job, not quality.yml security. Helpers are executable — G2 still required |
 | Test isolation | D1 tempfile productions | enforced | `tests/test_skill.py` uses TemporaryDirectory; rejects `../escape` |
 | Bundler output | starter `npm run build` | enforced | CI working-directory `assets/starter` |
 | Docs | SKILL/references if workflow changed | manual | human review |
 | Release | GitHub release of a production ZIP | manual | `pages.yml` + README download link |
 
-No husky. Target (unmeasured): pre-commit G1+L1 on index snapshot <30s; pre-push applicable G2 on stdin refs <3min. `--no-verify` forbidden.
+No husky. Target (unmeasured): pre-commit unified L1 (types, check-only lint, coverage) on index snapshot <30s; pre-push applicable G2 on stdin refs <3min. `--no-verify` forbidden.
 
 ## Resources / Isolation
 
