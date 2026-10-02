@@ -38,8 +38,8 @@ async def main():
                                 text = chunk["text"]
                                 for original, spoken in story.get("pronunciations", {}).items():
                                     text = re.sub(re.escape(spoken), lambda _: original, text, flags=re.IGNORECASE)
-                                chunks.append({"text": text, "spokenText": chunk["text"],
-                                    "start": chunk["offset"] / 10_000_000, "duration": chunk["duration"] / 10_000_000})
+                                chunks.append({"text": text, "start": chunk["offset"] / 10_000_000,
+                                               "duration": chunk["duration"] / 10_000_000})
                     require(temporary.stat().st_size > 1000 and chunks, "Speech service returned empty audio or timing")
                     duration(temporary)
                     temporary.replace(output)
@@ -59,7 +59,7 @@ async def main():
                        "keyframe": start + min(150, frames - 90)})
         for chunk in read_json(boundaries):
             begin = (start + lead) / story["fps"] + chunk["start"]
-            captions.append({"start": begin, "end": begin + chunk["duration"], "text": chunk["text"], "scene": i})
+            captions.append({"start": begin, "end": begin + chunk["duration"], "text": chunk["text"]})
         start += frames
         print(f"{scene['id']}: {seconds:.2f}s voice, {frames/story['fps']:.2f}s chapter", flush=True)
     for current, following in zip(captions, captions[1:]):
