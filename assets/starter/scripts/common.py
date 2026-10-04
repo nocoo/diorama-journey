@@ -86,7 +86,7 @@ def validate_timing(story, timing):
     require(len(timing["scenes"]) == len(story["scenes"]), "Timing scene count differs")
     start = 0
     for i, (scene, clock) in enumerate(zip(story["scenes"], timing["scenes"])):
-        require(clock["id"] == scene["id"] and clock["index"] == i and clock["start"] == start, "Timing is stale or has gaps")
+        require(clock["id"] == scene["id"] and clock["start"] == start, "Timing is stale or has gaps")
         require(isinstance(clock["duration"], int) and clock["duration"] > 0, "Invalid chapter duration")
         require(start <= clock["keyframe"] < start + clock["duration"] - 60, "Keyframe is outside the stable chapter")
         require(clock["voiceStart"] + math.ceil(clock["audioDuration"] * timing["fps"]) <= clock["duration"] - 60,

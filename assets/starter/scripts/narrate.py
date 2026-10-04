@@ -54,7 +54,7 @@ async def main():
         seconds = duration(output)
         lead = 30 if i == 0 else 24
         frames = math.ceil((lead / story["fps"] + seconds + 3.0) * story["fps"])
-        scenes.append({"id": scene["id"], "index": i, "start": start, "duration": frames, "voiceStart": lead,
+        scenes.append({"id": scene["id"], "start": start, "duration": frames, "voiceStart": lead,
                        "audioDuration": seconds, "audio": f"audio/{output.name}",
                        "keyframe": start + min(150, frames - 90)})
         for chunk in read_json(boundaries):

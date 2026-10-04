@@ -12,8 +12,8 @@ class TimelineContracts(unittest.TestCase):
     def setUp(self):
         self.story={"fps":30,"scenes":[{"id":"opening"},{"id":"ending"}]}
         self.timing={"fps":30,"durationInFrames":600,"captions":[{"start":1,"end":2}],"scenes":[
-            {"id":"opening","index":0,"start":0,"duration":300,"keyframe":150,"voiceStart":30,"audioDuration":4,"audio":"audio/00-opening.mp3"},
-            {"id":"ending","index":1,"start":300,"duration":300,"keyframe":450,"voiceStart":30,"audioDuration":4,"audio":"audio/01-ending.mp3"}]}
+            {"id":"opening","start":0,"duration":300,"keyframe":150,"voiceStart":30,"audioDuration":4,"audio":"audio/00-opening.mp3"},
+            {"id":"ending","start":300,"duration":300,"keyframe":450,"voiceStart":30,"audioDuration":4,"audio":"audio/01-ending.mp3"}]}
 
     def test_discontinuous_timing_and_overlapping_captions_are_rejected(self):
         validate_timing(self.story,self.timing)

@@ -61,10 +61,10 @@ def sources():
     require(len(story["scenes"]) == len(timing["scenes"]) > 0, "Scene counts differ")
     require(timing["fps"] == story["fps"] and timing["fps"] > 0, "Frame rates differ")
     seen = set()
-    for index, (scene, clock) in enumerate(zip(story["scenes"], timing["scenes"])):
+    for scene, clock in zip(story["scenes"], timing["scenes"]):
         label = scene["id"]
         require(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", label), f"Invalid scene ID: {label}")
-        require(label not in seen and clock["id"] == label and clock["index"] == index, f"Stale scene: {label}")
+        require(label not in seen and clock["id"] == label, f"Stale scene: {label}")
         seen.add(label)
         require(isinstance(clock["keyframe"], int) and 0 <= clock["start"] <= clock["keyframe"]
                 < clock["start"] + clock["duration"] <= timing["durationInFrames"], f"Invalid keyframe: {label}")
