@@ -4,7 +4,6 @@
   "scenes": [
     {
       "id": "spark",
-      "index": 0,
       "start": 0,
       "duration": 412,
       "voiceStart": 30,
@@ -14,7 +13,6 @@
     },
     {
       "id": "explore",
-      "index": 1,
       "start": 412,
       "duration": 433,
       "voiceStart": 24,
@@ -24,7 +22,6 @@
     },
     {
       "id": "make",
-      "index": 2,
       "start": 845,
       "duration": 417,
       "voiceStart": 24,
@@ -34,7 +31,6 @@
     },
     {
       "id": "connect",
-      "index": 3,
       "start": 1262,
       "duration": 393,
       "voiceStart": 24,
@@ -44,7 +40,6 @@
     },
     {
       "id": "share",
-      "index": 4,
       "start": 1655,
       "duration": 388,
       "voiceStart": 24,
