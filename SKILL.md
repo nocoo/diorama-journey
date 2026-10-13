@@ -3,7 +3,7 @@ name: diorama-journey
 description: Create narrated story videos through connected miniature 3D worlds, with one recurring character, object or signal carrying the story across chapters. Use for isometric diorama explainers, process journeys, project stories or narrated retrospectives that need 3D animation, chapter clips and matching presentation slides. Includes a Remotion and Three.js starter, voice generation, PPTX/PDF/ODP exports and production archives.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # Diorama Journey

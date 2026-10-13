@@ -12,7 +12,7 @@ This file is the **contract**. Hooks, CI, and config are **enforcement**. If the
 |---|---|
 | Agent handbook | this file |
 | Human docs | README.md, SKILL.md, `references/*`, [docs/validation.md](docs/validation.md) |
-| Version | SKILL.md metadata `0.1.0`; starter `assets/starter/package.json` `0.1.0` |
+| Version | SKILL.md metadata `0.1.1`; starter `assets/starter/package.json` `0.1.1` |
 | Enforcement | `.github/workflows/ci.yml`, `tests/test_skill.py`, starter tests |
 | Machine rules | global `AGENTS.md`, `rules/git-commit.md` |
 | Accidents | [Retrospective.md](Retrospective.md) |
