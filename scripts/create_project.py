@@ -22,7 +22,7 @@ def create(slug, output):
             "__pycache__", ".DS_Store", "*.tmp.mp3", "review", "slides", "clips", "delivery.json"))
     (destination / "run.json").write_text(json.dumps({
         "schemaVersion":1, "project":slug, "createdAt":datetime.now(timezone.utc).isoformat(),
-        "skill":"diorama-journey", "skillVersion":"0.1.0", "status":"draft", "example":True,
+        "skill":"diorama-journey", "skillVersion":"0.1.1", "status":"draft", "example":True,
         "story":"src/story.json", "motif":"One lantern through connected miniature worlds",
         "review":{"visual":"pending", "listening":"pending", "presenterView":"pending"},
     }, indent=2)+"\n")
