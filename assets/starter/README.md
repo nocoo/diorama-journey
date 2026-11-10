@@ -40,7 +40,7 @@ website, checkpoints, render records and verification. Use
 `npm run archive` packages the verified production with checksums; generated
 bundles and dependencies can be rebuilt after extraction.
 
-The environment is Node.js 22.12+, Python 3.11+, uv, FFmpeg/ffprobe and Chrome
+The environment is Node.js 26.12+, Python 3.11+, uv, FFmpeg/ffprobe and Chrome
 with WebGL. Media scripts use uv-managed Python 3.12. `CHROME_PATH` can select
 Chrome. All Remotion packages must stay at the same pinned version.
 

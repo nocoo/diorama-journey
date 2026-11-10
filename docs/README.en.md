@@ -91,7 +91,7 @@ No model API, 3D asset marketplace or hosting account is needed to render the
 bundled example. To use supplied narration or another speech provider, adapt the
 narration script to the [same output contract](../references/production.md).
 
-Install Node.js 22.12+, Python 3.11+, [uv](https://docs.astral.sh/uv/), FFmpeg and
+Install Node.js 26.12+, Python 3.11+, [uv](https://docs.astral.sh/uv/), FFmpeg and
 Chrome with WebGL. The media scripts use uv-managed Python 3.12. Check the environment:
 
 ```sh

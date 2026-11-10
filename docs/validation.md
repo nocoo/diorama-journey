@@ -11,7 +11,7 @@ verification records and browser screenshots.
 - Python 3.14.7 for standard-library helpers; uv-managed Python 3.12.14 for media.
 - uv 0.12.11 and FFmpeg / ffprobe 9.0.1.
 
-The documented minimum is Node.js 22.12+ and Python 3.11+. CI uses Node.js 22,
+The documented minimum is Node.js 26.12+ and Python 3.11+. CI uses Node.js 26,
 Python 3.12 and Linux software WebGL. Its current results and exported diagnostics
 are available in [GitHub Actions](https://github.com/nocoo/diorama-journey/actions/workflows/ci.yml).
 
