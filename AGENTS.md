@@ -33,7 +33,7 @@ This file is the **contract**. Hooks, CI, and config are **enforcement**. If the
 |---|---|
 | Language | Markdown skill + Python helpers + TypeScript starter |
 | Package manager | npm in `assets/starter` (`package-lock.json`) |
-| Runtime | Node ≥ 22.12, Python 3.12 (uv) for media, Remotion 4 |
+| Runtime | Node ≥ 26.12, Python 3.12 (uv) for media, Remotion 4 |
 | Lint | none at repo root |
 | Tests | `python3 -m unittest discover -s tests`; starter `npm test` (`node --test`) |
 | Data | none in the skill; production files live in the run directory |

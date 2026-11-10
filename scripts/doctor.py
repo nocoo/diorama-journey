@@ -20,8 +20,8 @@ def main():
         line = (version.stdout or version.stderr).splitlines()[0]
         if name == "node":
             parts = re.search(r"(\d+)\.(\d+)\.(\d+)",line)
-            if not parts or tuple(map(int,parts.groups())) < (22,12,0):
-                missing.append("Node.js 22.12+")
+            if not parts or tuple(map(int,parts.groups())) < (26,12,0):
+                missing.append("Node.js 26.12+")
         print(f"FOUND    {name}: {line}")
     if sys.version_info < (3,11):
         missing.append("Python 3.11+")

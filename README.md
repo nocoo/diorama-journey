@@ -74,7 +74,7 @@ Agent 会组织故事、实现各章的 3D 动作、生成配音、检查关键�
 
 渲染内置示例无需模型 API、3D 素材市场或托管账户。使用已有配音或其他语音服务时，需调整配音脚本，并保留[相同的输出约定](references/production.md)。
 
-准备 Node.js 22.12+、Python 3.11+、[uv](https://docs.astral.sh/uv/)、FFmpeg，以及支持 WebGL 的 Chrome。媒体脚本使用 uv 管理的 Python 3.12。先检查环境并创建独立制作目录：
+准备 Node.js 26.12+、Python 3.11+、[uv](https://docs.astral.sh/uv/)、FFmpeg，以及支持 WebGL 的 Chrome。媒体脚本使用 uv 管理的 Python 3.12。先检查环境并创建独立制作目录：
 
 ```sh
 git clone https://github.com/nocoo/diorama-journey.git

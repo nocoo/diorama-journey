@@ -2,7 +2,7 @@
 
 ## Environment
 
-Use Node.js 22.12+ and npm, Python 3.11+ for helpers, uv, FFmpeg/ffprobe and Chrome
+Use Node.js 26.12+ and npm, Python 3.11+ for helpers, uv, FFmpeg/ffprobe and Chrome
 with working WebGL. `uv run --python 3.12` resolves a compatible media-script
 environment, installing that Python version if necessary. The renderer uses
 `CHROME_PATH`, standard macOS Chrome, or Remotion's browser resolution. In a
