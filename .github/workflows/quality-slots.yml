@@ -75,7 +75,7 @@ jobs:
           import pathlib, re, sys
           for path in sorted(pathlib.Path(".github/workflows").glob("*.y*ml")):
               text = path.read_text(encoding="utf-8")
-              for m in re.finditer(r"uses:\s*([^\s#]+)", text):
+              for m in re.finditer(r"^\s*-?\s*uses:\s*([^\s#]+)", text, re.MULTILINE):
                   ref = m.group(1)
                   if ref.startswith("./") or ref.startswith("docker://"):
                       continue
