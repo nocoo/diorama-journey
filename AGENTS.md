@@ -71,23 +71,24 @@ Do not run `npm run render` just because it appears here.
 
 ## Verification
 
-Status: `enforced` | `planned` | `manual` | `N/A`.
-6DQ = L1/L2/L3 + G2 + D1; the former G1 dimension was merged into L1 on 2026-09-21. Executable helpers must be tested.
-L1 requires statements/branches/functions/lines each ≥95%; no skipped or focused tests; plus check-only strict types and lint with zero errors and warnings.
+System1 quality definitions come from `system1-quality` (v1.3.0); CI runs in native mode via `.github/workflows/ci.yml` → `./.github/workflows/quality-slots.yml` with `nocoo/base-ci` composite actions pinned to `v2026.15` (`777bbe4f9bacab8a91d8c01974480a6ee23d28e0`). Branch protection (`main quality gate`) requires `quality / Z1: Gate`.
 
-| Change | Proof | Status | Evidence |
+| Slot | Stage | Command and Scope | Status |
 |---|---|---|---|
-| Logic | L1 ≥ 95% four metrics | planned | CI runs skill unittest + starter `npm test` + Python tests; no coverage thresholds |
-| Types / lint (L1 static) | 0 error, 0 warning | planned | starter `npm run typecheck` in CI; no lint script; no ruff |
-| API / schema | L2 real HTTP | N/A | no service API; review site is a local static helper |
-| UI path | L3 full film/WebGL | planned | CI renders sample frames + slides, not a full user journey; visual QA is human |
-| Deps / secrets | G2 osv-scanner + gitleaks | planned | CI is a custom job, not quality.yml security. Helpers are executable — G2 still required |
-| Test isolation | D1 tempfile productions | enforced | `tests/test_skill.py` uses TemporaryDirectory; rejects `../escape` |
-| Bundler output | starter `npm run build` | enforced | CI working-directory `assets/starter` |
-| Docs | SKILL/references if workflow changed | manual | human review |
-| Release | GitHub release of a production ZIP | manual | `pages.yml` + README download link |
+| S1 Types | CI | `npm run typecheck` in `assets/starter` | enforced |
+| S2 Lint | — | no lint script configured at root or in starter | na |
+| S3 Workflow | CI | `actionlint` + 40-char SHA pin verification on `.github/workflows/*.yml` | enforced |
+| G1 Secrets | CI | `gitleaks` redacted checkout scan | enforced |
+| G2 Dependencies | CI | `osv-scanner scan --lockfile=assets/starter/package-lock.json` | enforced |
+| B1 Build | CI | `npm run build` in `assets/starter` | enforced |
+| L1 Unit | CI, local | `python3 -m unittest discover -s tests`, starter `npm test` and `test_*.py` | enforced |
+| L2 Runtime | — | no separate platform runtime binding | na |
+| L3 Integration | — | no service API; review site is a local static helper | na |
+| L4 E2E | CI | sample WebGL frames + slides rendering & verification in `assets/starter` | enforced |
+| P1 Package | — | skill/starter repository; no npm package published | na |
+| Z1 Gate | CI | `z1-gate` validator in `quality-slots.yml` aggregating all `impl` slots and matching `github.sha` | enforced |
 
-No husky. Target (unmeasured): pre-commit unified L1 (types, check-only lint, coverage) on index snapshot <30s; pre-push applicable G2 on stdin refs <3min. `--no-verify` forbidden.
+No husky installed; tests use `TemporaryDirectory` isolation (`tests/test_skill.py` rejects `../escape`). Release publishing (`pages.yml`) remains manual.
 
 ## Resources / Isolation
 
