@@ -1,5 +1,5 @@
 # System1 quality slots, native mode (system1-quality v1.3.0, base-ci v2026.15).
-# S2 Lint, L2 Runtime, L3 Integration, and P1 Package are declared `na` and stay skipped.
+# L2 Runtime, L3 Integration, and P1 Package are declared `na` and stay skipped.
 name: Quality slots
 
 on:
@@ -43,10 +43,34 @@ jobs:
 
   s2-lint:
     name: "S2: Lint"
-    if: ${{ vars.ENABLE_S2_LINT == 'true' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      tested-sha: ${{ steps.record-sha.outputs.sha }}
     steps:
-      - run: echo "N/A — no lint script configured in starter or root"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: assets/starter/package-lock.json
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install starter dependencies
+        working-directory: assets/starter
+        run: npm ci
+      - name: Lint starter with Biome
+        working-directory: assets/starter
+        run: npm run lint
+      - name: Compile-check Python scripts and tests
+        run: python3 -m py_compile scripts/*.py tests/*.py assets/starter/scripts/*.py
+      - name: Record tested SHA
+        id: record-sha
+        if: always()
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
   s3-workflow:
     name: "S3: Workflow"
@@ -295,8 +319,8 @@ jobs:
           import json, os, sys
           needs = json.loads(os.environ["NEEDS_JSON"])
           expected_sha = os.environ["EXPECTED_SHA"]
-          impl_slots = ["s1-types", "s3-workflow", "g1-secrets", "g2-dependencies", "b1-build", "l1-unit", "l4-e2e"]
-          na_slots = ["s2-lint", "l2-runtime", "l3-integration", "p1-package"]
+          impl_slots = ["s1-types", "s2-lint", "s3-workflow", "g1-secrets", "g2-dependencies", "b1-build", "l1-unit", "l4-e2e"]
+          na_slots = ["l2-runtime", "l3-integration", "p1-package"]
           errors = []
           for slot in impl_slots:
               entry = needs.get(slot, {})

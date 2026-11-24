@@ -22,6 +22,7 @@ From `assets/starter` (or a created production):
 ```sh
 npm ci
 npm run typecheck                                                # S1
+npm run lint                                                     # S2 (Biome)
 npm test                                                         # L1 JS (node --test)
 python3 -m unittest discover -s tests -p 'test_*.py'             # L1 Python contracts
 npm run build                                                    # B1 Vite viewer build
@@ -46,8 +47,8 @@ npm run render                                                   # video + slide
 
 Follows `system1-quality`; CI runs `.github/workflows/ci.yml` -> [quality-slots.yml](.github/workflows/quality-slots.yml) in native mode, where slot definitions and the pinned `base-ci` revision live (`quality / Z1: Gate` required on `main`). Status vocabulary: `enforced`, `planned`, `manual`, `N/A`.
 
-- **CI enforced**: `S1`, `S3`, `G1`, `G2`, `B1`, `L1` (root + starter), `L4` (WebGL sample + slides verify), and `Z1`.
-- **Exceptions (`N/A`)**: `S2 Lint` (no lint script), `L2 Runtime` (no platform binding), `L3 Integration` (local static review site, no API), `P1 Package` (skill/starter repo, no npm publish).
+- **CI enforced**: `S1`, `S2`, `S3`, `G1`, `G2`, `B1`, `L1` (root + starter), `L4` (WebGL sample + slides verify), and `Z1`.
+- **Exceptions (`N/A`)**: `L2 Runtime` (no platform binding), `L3 Integration` (local static review site, no API), `P1 Package` (skill/starter repo, no npm publish).
 - **Local hooks**: none installed; run root and starter checks manually before committing. Skill tests use `TemporaryDirectory` isolation and verify `../escape` rejection.
 
 ## Resources & Isolation
