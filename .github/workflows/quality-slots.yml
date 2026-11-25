@@ -1,4 +1,4 @@
-# System1 quality slots, native mode (system1-quality v1.3.0, base-ci v2026.16).
+# System1 quality slots, native mode (system1-quality v1.3.0, base-ci v2026.17).
 # L2 Runtime, L3 Integration, and P1 Package are declared `na` and stay skipped.
 name: Quality slots
 
@@ -10,7 +10,7 @@ permissions:
   actions: read
 
 env:
-  NODE_VERSION: "26"
+  NODE_VERSION: "26.12.1"
   PYTHON_VERSION: "3.12"
   NO_COLOR: "1"
 
@@ -25,14 +25,12 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      - uses: nocoo/base-ci/.github/actions/setup-js@dc858360aa7812db61fd9d825943e4efd4dcd0e7 # v2026.17
         with:
+          package-manager: npm
           node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-          cache-dependency-path: assets/starter/package-lock.json
-      - name: Install starter dependencies
-        working-directory: assets/starter
-        run: npm ci
+          working-directory: assets/starter
+          install-policy: blocked
       - name: TypeScript check
         working-directory: assets/starter
         run: npm run typecheck
@@ -51,17 +49,15 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      - uses: nocoo/base-ci/.github/actions/setup-js@dc858360aa7812db61fd9d825943e4efd4dcd0e7 # v2026.17
         with:
+          package-manager: npm
           node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-          cache-dependency-path: assets/starter/package-lock.json
+          working-directory: assets/starter
+          install-policy: blocked
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-      - name: Install starter dependencies
-        working-directory: assets/starter
-        run: npm ci
       - name: Lint starter with Biome
         working-directory: assets/starter
         run: npm run lint
@@ -82,33 +78,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Install verified actionlint
-        run: |
-          set -euo pipefail
-          curl --fail --silent --show-error --location --retry 3 \
-            https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz \
-            -o "$RUNNER_TEMP/actionlint.tar.gz"
-          echo "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8  $RUNNER_TEMP/actionlint.tar.gz" | sha256sum --check
-          tar -xzf "$RUNNER_TEMP/actionlint.tar.gz" -C "$RUNNER_TEMP" actionlint
-          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
-      - name: Run actionlint and verify immutable SHA pins
-        run: |
-          set -euo pipefail
-          actionlint
-          python3 - <<'PY'
-          import pathlib, re, sys
-          for path in sorted(pathlib.Path(".github/workflows").glob("*.y*ml")):
-              text = path.read_text(encoding="utf-8")
-              for m in re.finditer(r"^\s*-?\s*uses:\s*([^\s#]+)", text, re.MULTILINE):
-                  ref = m.group(1)
-                  if ref.startswith("./") or ref.startswith("docker://"):
-                      continue
-                  sha = ref.split("@", 1)[1] if "@" in ref else ""
-                  if not re.fullmatch(r"[0-9a-f]{40}", sha):
-                      print(f"Unpinned action in {path}: {ref}", file=sys.stderr)
-                      sys.exit(1)
-          print("All external action references are pinned to 40-char SHAs.")
-          PY
+      - uses: nocoo/base-ci/.github/actions/lint-workflows@dc858360aa7812db61fd9d825943e4efd4dcd0e7 # v2026.17
       - name: Record tested SHA
         id: record-sha
         if: always()
@@ -124,9 +94,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: nocoo/base-ci/.github/actions/setup-security-scanners@6424d395d36a815d931f10e557762eb635d511c0 # v2026.16
-      - name: Scan checkout for secrets
-        run: gitleaks dir . --no-banner --redact --log-level error
+          fetch-depth: 1
+      - uses: nocoo/base-ci/.github/actions/scan-secrets@dc858360aa7812db61fd9d825943e4efd4dcd0e7 # v2026.17
       - name: Record tested SHA
         id: record-sha
         if: always()
@@ -142,9 +111,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: nocoo/base-ci/.github/actions/setup-security-scanners@6424d395d36a815d931f10e557762eb635d511c0 # v2026.16
-      - name: Scan starter lockfile vulnerabilities
-        run: osv-scanner scan --lockfile=assets/starter/package-lock.json
+      - uses: nocoo/base-ci/.github/actions/scan-dependencies@dc858360aa7812db61fd9d825943e4efd4dcd0e7 # v2026.17
+        with:
+          lockfiles: "assets/starter/package-lock.json"
       - name: Record tested SHA
         id: record-sha
         if: always()
