@@ -13,7 +13,7 @@ verification records and browser screenshots.
 
 The documented minimum is Node.js 26.12+ and Python 3.11+. CI uses Node.js 26,
 Python 3.12 and Linux software WebGL. Its current results and exported diagnostics
-are available in [GitHub Actions](https://github.com/nocoo/diorama-journey/actions/workflows/ci.yml).
+are available in [GitHub Actions](https://github.com/nocoo/diorama-journey/actions/workflows/pipeline.yml).
 
 ## Completed checks
 

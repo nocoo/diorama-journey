@@ -1,0 +1,39 @@
+# System1 unified CI/CD pipeline: `quality` (`quality / <ID>: <Name>`, single required
+# check `quality / Z1: Gate`) gates `deploy` (`D1`-`D5` GitHub Pages on `main`).
+name: Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy after quality gate passes
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+  pages: write
+  id-token: write
+
+jobs:
+  quality:
+    permissions:
+      contents: read
+      actions: read
+    uses: ./.github/workflows/quality-slots.yml
+
+  deploy:
+    needs: [quality]
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.deploy == true)
+    uses: nocoo/base-ci/.github/workflows/deploy-pages.yml@3703a073693d598159e87f77f99587e586c14cfe # v2026.24
+    with:
+      artifact-name: b1-website
+      artifact-path: website
+      source-path: website
+      verify-url: https://nocoo.github.io/diorama-journey/

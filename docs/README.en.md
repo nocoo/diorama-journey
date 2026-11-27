@@ -3,7 +3,7 @@
 <p align="center"><strong>Tell a story through miniature 3D worlds.</strong><br>One recurring element · Connected chapters · Narrated films and matching slides</p>
 <p align="center"><a href="https://nocoo.github.io/diorama-journey/">Website</a> · <a href="../README.md">简体中文</a></p>
 <p align="center">
-  <a href="https://github.com/nocoo/diorama-journey/actions/workflows/ci.yml"><img src="https://github.com/nocoo/diorama-journey/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/nocoo/diorama-journey/actions/workflows/pipeline.yml"><img src="https://github.com/nocoo/diorama-journey/actions/workflows/pipeline.yml/badge.svg" alt="Pipeline" /></a>
   <img src="https://img.shields.io/badge/Agent-Skill-748967" alt="Agent Skill" />
   <img src="https://img.shields.io/badge/Remotion-4.0-0B84F3?logo=remotion&logoColor=white" alt="Remotion 4" />
   <img src="https://img.shields.io/badge/Three.js-3D-333333?logo=threedotjs&logoColor=white" alt="Three.js" />

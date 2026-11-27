@@ -3,7 +3,7 @@
 <p align="center"><strong>用微型 3D 世界讲述一个完整的故事。</strong><br>一个贯穿始终的元素 · 相互连接的章节 · 配音视频与配套演示文稿</p>
 <p align="center"><a href="https://nocoo.github.io/diorama-journey/">站点</a> · <a href="docs/README.en.md">English</a></p>
 <p align="center">
-  <a href="https://github.com/nocoo/diorama-journey/actions/workflows/ci.yml"><img src="https://github.com/nocoo/diorama-journey/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/nocoo/diorama-journey/actions/workflows/pipeline.yml"><img src="https://github.com/nocoo/diorama-journey/actions/workflows/pipeline.yml/badge.svg" alt="Pipeline" /></a>
   <img src="https://img.shields.io/badge/Agent-Skill-748967" alt="Agent Skill" />
   <img src="https://img.shields.io/badge/Remotion-4.0-0B84F3?logo=remotion&logoColor=white" alt="Remotion 4" />
   <img src="https://img.shields.io/badge/Three.js-3D-333333?logo=threedotjs&logoColor=white" alt="Three.js" />
